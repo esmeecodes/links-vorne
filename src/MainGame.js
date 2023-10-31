@@ -14,19 +14,24 @@ class MainGame {
       // clear the canvas
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+      // create 'cameraperson'
+      const cameraPerson = this.map.gameObjects.hero;
+
       // draw lower layer
       this.map.drawLowerImage(this.ctx);
 
+      // draw upper layer
+      this.map.drawUpperImage(this.ctx);
+
       // draw game objects
       Object.values(this.map.gameObjects).forEach((gameObject) => {
-        gameObject.update({}); // making the hero move
-        gameObject.sprite.draw(this.ctx); // we tekenen de sprite van elk game object
+        gameObject.update({
+          arrow: this.directionInput.Direction,
+        }); // making the hero move
+        gameObject.sprite.draw(this.ctx, cameraPerson); // we tekenen de sprite van elk game object
       });
 
       /* dit stukje code gaat door alle game-objecten in de this.map.gameObjects-verzameling en roept de draw-methode aan op de sprite van elk object, om ze op het scherm weer te geven */
-
-      // draw upper layer
-      this.map.drawUpperImage(this.ctx);
 
       requestAnimationFrame(() => {
         step(); // this is step calling step again
@@ -36,8 +41,10 @@ class MainGame {
   }
   init() {
     this.map = new MainGameMap(window.MainGameMap.DemoRoom); // we creeren een nieuwe instance van MainGameMap. als we nu de game in een andere ruimte willen starten, kunnen we hier de maap van de ruimte meegeven of veranderen.
+
     this.directionInput = new DirectionInput();
     this.directionInput.init();
+
     this.startGameLoop();
   }
 }

@@ -1,8 +1,9 @@
 class Person extends GameObject {
   constructor(config) {
     super(config);
-    this.movingProgressRemaining = 32; // hoeveel pixels we nog moeten bewegen tot we in een nieuwe grid zijn
-    this.direction = "down";
+    this.movingProgressRemaining = 0; // hoeveel pixels we nog moeten bewegen tot we in een nieuwe grid zijn
+
+    this.isPlayerControlled = config.isPlayerControlled || false; // we gaan de persoon niet besturen, maar we gaan hem wel laten bewegen
 
     this.directionUpdate = {
       up: ["y", -1],
@@ -14,6 +15,16 @@ class Person extends GameObject {
 
   update(state) {
     this.updatePosition();
+
+    if (
+      this.isPlayerControlled &&
+      this.movingProgressRemaining === 0 &&
+      state.arrow
+    ) {
+      // we checken of de persoon niet aan het bewegen is en of er een direction is meegegeven
+      this.direction = state.arrow; // we updaten de direction van de persoon
+      this.movingProgressRemaining = 16; // we zetten de movingProgressRemaining op 16, zodat de persoon 16 pixels beweegt
+    }
   }
 
   updatePosition() {

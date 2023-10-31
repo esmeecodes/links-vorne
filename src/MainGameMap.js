@@ -8,12 +8,20 @@ class MainGameMap {
     this.upperImage.src = config.upperSrc;
   }
 
-  drawLowerImage(ctx) {
-    ctx.drawImage(this.lowerImage, 0, 0);
+  drawLowerImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.lowerImage,
+      utils.withGrid(10.5) - cameraPerson.x,
+      utils.withGrid(6) - cameraPerson.y
+    );
   }
 
-  drawUpperImage(ctx) {
-    ctx.drawImage(this.upperImage, 0, 0);
+  drawUpperImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.upperImage,
+      utils.withGrid(10.5) - cameraPerson.x,
+      utils.withGrid(6) - cameraPerson.y
+    );
   }
 }
 window.MainGameMap = {
@@ -22,6 +30,7 @@ window.MainGameMap = {
     upperSrc: "/Project_1/01-pizza-legends-intro/images/maps/DemoUpper.png",
     gameObjects: {
       hero: new Person({
+        isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(5),
       }), // creeert een nieuw game-object in deze map met de naam hero
