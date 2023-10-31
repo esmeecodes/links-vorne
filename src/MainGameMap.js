@@ -22,6 +22,14 @@ class MainGameMap {
       utils.withGrid(10.5) - cameraPerson.x,
       utils.withGrid(6) - cameraPerson.y
     );
+
+  drawLowerImage(ctx) {
+    ctx.drawImage(this.lowerImage, 0, 0);
+  }
+
+  drawUpperImage(ctx) {
+    ctx.drawImage(this.upperImage, 0, 0);
+
   }
 }
 window.MainGameMap = {
@@ -37,6 +45,13 @@ window.MainGameMap = {
       secondPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(4),
+      hero: new GameObject({
+        x: 7,
+        y: 6,
+      }), // creeert een nieuw game-object in deze map met de naam hero
+      secondPerson: new GameObject({
+        x: 9,
+        y: 6,
         src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc1.png",
       }), //
     },
@@ -53,6 +68,15 @@ window.MainGameMap = {
       fourthPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(7),
+
+      thirdPerson: new GameObject({
+        x: 1,
+        y: 5,
+        src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc2.png",
+      }), // creeert een nieuw game-object in deze map met de naam hero
+      fourthPerson: new GameObject({
+        x: 5,
+        y: 5,
         src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc3.png",
       }), //
     },
