@@ -30,27 +30,22 @@ class MainGame {
         }); // making the hero move
         gameObject.sprite.draw(this.ctx, cameraPerson); // we tekenen de sprite van elk game object
 
-     
-      // draw lower layer
-      this.map.drawLowerImage(this.ctx);
+        // draw lower layer
+        this.map.drawLowerImage(this.ctx);
 
-      // draw game objects
-      Object.values(this.map.gameObjects).forEach((gameObject) => {
-        gameObject.x += 0.02; // making the hero move
-        gameObject.sprite.draw(this.ctx); // we tekenen de sprite van elk game object
+        /* dit stukje code gaat door alle game-objecten in de this.map.gameObjects-verzameling en roept de draw-methode aan op de sprite van elk object, om ze op het scherm weer te geven */
+
+        // draw upper layer
+        this.map.drawUpperImage(this.ctx);
+
+        requestAnimationFrame(() => {
+          step(); // this is step calling step again
+        });
       });
-
-      /* dit stukje code gaat door alle game-objecten in de this.map.gameObjects-verzameling en roept de draw-methode aan op de sprite van elk object, om ze op het scherm weer te geven */
-
-      // draw upper layer
-      this.map.drawUpperImage(this.ctx);
-
-      requestAnimationFrame(() => {
-        step(); // this is step calling step again
-      });
+      step();
     };
-    step();
   }
+
   init() {
     this.map = new MainGameMap(window.MainGameMap.DemoRoom); // we creeren een nieuwe instance van MainGameMap. als we nu de game in een andere ruimte willen starten, kunnen we hier de maap van de ruimte meegeven of veranderen.
 

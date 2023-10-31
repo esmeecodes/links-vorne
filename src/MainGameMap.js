@@ -22,16 +22,9 @@ class MainGameMap {
       utils.withGrid(10.5) - cameraPerson.x,
       utils.withGrid(6) - cameraPerson.y
     );
-
-  drawLowerImage(ctx) {
-    ctx.drawImage(this.lowerImage, 0, 0);
-  }
-
-  drawUpperImage(ctx) {
-    ctx.drawImage(this.upperImage, 0, 0);
-
   }
 }
+
 window.MainGameMap = {
   DemoRoom: {
     lowerSrc: "/Project_1/01-pizza-legends-intro/images/maps/DemoLower.png",
@@ -45,6 +38,7 @@ window.MainGameMap = {
       secondPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(4),
+      }),
       hero: new GameObject({
         x: 7,
         y: 6,
@@ -68,6 +62,7 @@ window.MainGameMap = {
       fourthPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(7),
+      }),
 
       thirdPerson: new GameObject({
         x: 1,
