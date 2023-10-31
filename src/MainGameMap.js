@@ -24,7 +24,6 @@ class MainGameMap {
     );
   }
 }
-
 window.MainGameMap = {
   DemoRoom: {
     lowerSrc: "/Project_1/01-pizza-legends-intro/images/maps/DemoLower.png",
@@ -38,14 +37,6 @@ window.MainGameMap = {
       secondPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(4),
-      }),
-      hero: new GameObject({
-        x: 7,
-        y: 6,
-      }), // creeert een nieuw game-object in deze map met de naam hero
-      secondPerson: new GameObject({
-        x: 9,
-        y: 6,
         src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc1.png",
       }), //
     },
@@ -62,16 +53,6 @@ window.MainGameMap = {
       fourthPerson: new Person({
         x: utils.withGrid(2),
         y: utils.withGrid(7),
-      }),
-
-      thirdPerson: new GameObject({
-        x: 1,
-        y: 5,
-        src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc2.png",
-      }), // creeert een nieuw game-object in deze map met de naam hero
-      fourthPerson: new GameObject({
-        x: 5,
-        y: 5,
         src: "/Project_1/01-pizza-legends-intro/images/characters/people/npc3.png",
       }), //
     },
