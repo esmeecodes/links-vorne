@@ -2,17 +2,19 @@ class Sprite {
   constructor(config) {
     // setting up
     this.image = new Image();
-    this.image.src = config.src; // als we een nieuwe sprite creeren, moeten we een nieuwe image meegeven
+    this.image.src = config.src;
     this.image.onload = () => {
-      this.isLoaded = true; // om te checken of de image geladen is, zodat we daarna eerst beginnen met tekenen (draw methode)
+      this.isLoaded = true;
     };
+    // als we een nieuwe sprite creeren, moeten we een nieuwe image meegeven
+    // om te checken of de image geladen is, zodat we daarna eerst beginnen met tekenen (draw methode)
 
     // Shadows
     this.shadow = new Image();
     this.useShadow = true; // config.useShadow || false;
     if (this.useShadow) {
       this.shadow.src =
-        "/Project_1/01-pizza-legends-intro/images/people/shadow.png";
+        "/Project_1/01-pizza-legends-intro/images/characters/shadow.png";
     }
     // if we don't want to user the shadow we never download it.
     this.shadow.onload = () => {
@@ -24,6 +26,7 @@ class Sprite {
       // we stellen dit zo in zodat elk game object een eigen animatie kan hebben, maar de standaard is de idleDown
       idleDown: [[0, 0]],
     };
+
     this.currentAnimation = config.currentAnimation || "idleDown";
     this.currentAnimationFrame = 0; // we beginnen bij de eerste frame, hier komt een array en werken we met indexes.
 
