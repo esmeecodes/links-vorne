@@ -18,10 +18,10 @@ class MainGame {
       const cameraPerson = this.map.gameObjects.hero;
 
       // draw lower layer
-      this.map.drawLowerImage(this.ctx);
+      this.map.drawLowerImage(this.ctx, cameraPerson);
 
       // draw upper layer
-      this.map.drawUpperImage(this.ctx);
+      this.map.drawUpperImage(this.ctx, cameraPerson);
 
       // draw game objects
       Object.values(this.map.gameObjects).forEach((gameObject) => {
