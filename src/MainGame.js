@@ -48,7 +48,7 @@ class MainGame {
     this.startGameLoop();
   }
 }
-
+//
 // we willen de MainGame vertellen waar de
 // met init maken we een nieuwe image, we assignen een source en dan zeggen we dat we de image willen tekenen op de canvas
 // we moeten wachten tot de image geladen is, daarom gebruiken we onload
