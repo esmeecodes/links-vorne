@@ -7,8 +7,27 @@ class MainGame {
   }
 
   startGameLoop() {
+    // all the drawing happens in a loop that keeps calling itself. this is the game loop
     const step = () => {
       // console.log("game loop on");
+
+      // clear the canvas
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      // draw lower layer
+      this.map.drawLowerImage(this.ctx);
+
+      // draw game objects
+      Object.values(this.map.gameObjects).forEach((gameObject) => {
+        gameObject.x += 0.02; // making the hero move
+        gameObject.sprite.draw(this.ctx); // we tekenen de sprite van elk game object
+      });
+
+      /* dit stukje code gaat door alle game-objecten in de this.map.gameObjects-verzameling en roept de draw-methode aan op de sprite van elk object, om ze op het scherm weer te geven */
+
+      // draw upper layer
+      this.map.drawUpperImage(this.ctx);
+
       requestAnimationFrame(() => {
         step(); // this is step calling step again
       });
@@ -16,7 +35,7 @@ class MainGame {
     step();
   }
   init() {
-    this.map = new MainGameMap({window.MainGameMap.DemoRoom});
+    this.map = new MainGameMap(window.MainGameMap.DemoRoom); // we creeren een nieuwe instance van MainGameMap. als we nu de game in een andere ruimte willen starten, kunnen we hier de maap van de ruimte meegeven of veranderen.
     this.startGameLoop();
   }
 }
