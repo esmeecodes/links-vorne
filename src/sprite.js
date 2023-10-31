@@ -34,9 +34,9 @@ class Sprite {
     this.gameObject = config.gameObject;
   }
 
-  draw(ctx) {
-    const x = this.gameObject.x * 16 - 8;
-    const y = this.gameObject.y * 16 - 18;
+  draw(ctx, cameraPerson) {
+    const x = this.gameObject.x - 8 + utils.withGrid(10.5) - cameraPerson.x;
+    const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
 
     this.isShadowLoaded && ctx.drawImage(this.shadow, x, y); // de schaduw moet eerst geladen worden en dan de image.
 
