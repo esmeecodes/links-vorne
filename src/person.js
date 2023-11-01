@@ -6,10 +6,10 @@ class Person extends GameObject {
     this.isPlayerControlled = config.isPlayerControlled || false; // we gaan de persoon niet besturen, maar we gaan hem wel laten bewegen
 
     this.directionUpdate = {
-      up: ["y", -1],
-      down: ["y", 1],
-      left: ["x", -1],
-      right: ["x", 1], // [propert,change]
+      up: ["y", -0.5],
+      down: ["y", 0.5],
+      left: ["x", -0.5],
+      right: ["x", 0.5], // [propert,change]
     };
   }
 

@@ -11,7 +11,7 @@ class Sprite {
 
     // Shadows
     this.shadow = new Image();
-    this.useShadow = true; // config.useShadow || false;
+    this.useShadow = false; // config.useShadow || false;
     if (this.useShadow) {
       this.shadow.src =
         "/Project_1/01-pizza-legends-intro/images/characters/shadow.png";
