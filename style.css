@@ -12,16 +12,12 @@ body {
   border: 1px solid black;
   margin: 0 auto;
   margin-top: 50px;
-  background-color: aliceblue;
+  background-color: #697e51;
   transform: scale(2) translateY(50%);
 }
 
 .game-container canvas {
   image-rendering: pixelated;
 }
-
-/* .game-container canvas img {
-  display: none;
-} */
 
 /* scalen gebeurt vanaf het midden van het element */

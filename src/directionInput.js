@@ -16,7 +16,7 @@ class DirectionInput {
 
   init() {
     document.addEventListener("keydown", (e) => {
-      // console.log(e.code);
+      e.preventDefault();
       const dir = this.map[e.code]; // we halen de direction op uit de map en steken die in de dir-array
       if (dir && this.heldDirections.indexOf(dir) === -1) {
         // we checken of de direction in de array zit, als hij er niet in zit, dan voegen we hem toe

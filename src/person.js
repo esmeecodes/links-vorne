@@ -19,7 +19,6 @@ class Person extends GameObject {
       this.updatePosition();
     } else {
       // more cases  for starrting to walk welcome here
-
       // case: we're keyboard ready and we have an arrow pressed.
       if (this.isPlayerControlled && state.arrow) {
         this.startBehavior(state, {
@@ -38,9 +37,10 @@ class Person extends GameObject {
     if (behavior.type === "walk") {
       // stop here if the space is not free
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
-        return;
-      } // free to walk!
-      state.map.moveWall(this.x, this.y, this.direction); // hiermee 'verplaatsen' we de muur in de map, in relatie tot de persoon
+        return; // stop walking, stop de functie
+      }
+      // free to walk!
+      state.map.moveWall(this.x, this.y, this.direction); // hiermee setten we onze future position vast en zetten er een wall op, zodat andere objecten niet op die plek kunnen komen
       this.movingProgressRemaining = 16;
     }
   }
